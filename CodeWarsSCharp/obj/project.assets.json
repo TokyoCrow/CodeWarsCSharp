@@ -671,11 +671,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\admin\\source\\repos\\CodeWarsSCharp\\CodeWarsSCharp\\Katas.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\CodeWarsSCharp\\CodeWarsSCharp\\Katas.csproj",
       "projectName": "Katas",
-      "projectPath": "c:\\users\\admin\\source\\repos\\CodeWarsSCharp\\CodeWarsSCharp\\Katas.csproj",
+      "projectPath": "C:\\Users\\Admin\\source\\repos\\CodeWarsSCharp\\CodeWarsSCharp\\Katas.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\admin\\source\\repos\\CodeWarsSCharp\\CodeWarsSCharp\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\source\\repos\\CodeWarsSCharp\\CodeWarsSCharp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
