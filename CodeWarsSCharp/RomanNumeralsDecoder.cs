@@ -2,6 +2,7 @@
 
 namespace Katas
 {
+    //https://www.codewars.com/kata/51b6249c4612257ac0000005
     public class RomanDecode
     {
         static Dictionary<char, int> romanNumbers = new Dictionary<char, int>
