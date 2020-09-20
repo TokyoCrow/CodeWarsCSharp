@@ -14,7 +14,7 @@ namespace Katas
             else
             {
                 Array.Resize(ref signature, n);
-                for(int i = 3; i < n; i++)
+                for(var i = 3; i < n; i++)
                 {
                     signature[i] = signature[i-1] + signature[i-2] + signature[i-3];
                 }

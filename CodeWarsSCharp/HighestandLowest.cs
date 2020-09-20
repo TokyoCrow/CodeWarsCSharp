@@ -8,7 +8,7 @@ namespace Katas
     {
         public static string HighAndLow(string numbers)
         {
-            List<int> listOfNumbers = new List<int>();
+            var listOfNumbers = new List<int>();
             foreach (string number in numbers.Split(' '))
                 listOfNumbers.Add(Convert.ToInt32(number));
             listOfNumbers.Sort();

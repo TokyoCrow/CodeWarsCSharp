@@ -8,7 +8,7 @@ namespace Katas
         public static bool Narcissistic(int value)
         {
             string numbers = Convert.ToString(value);
-            int summOfNumbers = 0;
+            var summOfNumbers = 0;
             foreach (char number in numbers)
                 summOfNumbers += (int) Math.Pow(Convert.ToInt32(Convert.ToString(number)), numbers.Length);
             return summOfNumbers == value;
