@@ -1,5 +1,6 @@
 ﻿using Katas;
 using Xunit;
+
 namespace Tests
 {
     public class RangeExtractionTest
