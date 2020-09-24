@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodeWarsSCharp\Katas.csproj" />
+    <ProjectReference Include="..\Katas\Katas.csproj" />
   </ItemGroup>
 
 </Project>

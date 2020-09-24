@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
 namespace Katas
 {
@@ -9,7 +8,6 @@ namespace Katas
         public static string Extract(int[] args)
         {
             var correctRange = new StringBuilder();
-            Array.Sort(args);
             var rangeCounter = 1;
             for (var i = 0; i < args.Length; i++)
             {

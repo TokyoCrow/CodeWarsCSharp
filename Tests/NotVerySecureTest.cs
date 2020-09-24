@@ -5,13 +5,14 @@ namespace Tests
 {
     public class NotVerySecureTest
     {
-        [Fact]
-        public void AlphanumericTest()
+        [Theory]
+        [InlineData("Mazinkaiser", true)]
+        [InlineData("hello world_", false)]
+        [InlineData("PassW0rd", true)]
+        [InlineData("     ", false)]
+        public void AlphanumericTest(string input, bool output)
         {
-            Assert.True(NotVerySecure.Alphanumeric("Mazinkaiser"));
-            Assert.False(NotVerySecure.Alphanumeric("hello world_"));
-            Assert.True(NotVerySecure.Alphanumeric("PassW0rd"));
-            Assert.False(NotVerySecure.Alphanumeric("     "));
+            Assert.Equal(output, NotVerySecure.Alphanumeric(input));
         }
     }
 }

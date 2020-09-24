@@ -7,15 +7,12 @@
         {
             if (str.Equals("") || str.Contains(" ") || str.Contains("_"))
                 return false;
-            else
+            foreach (char c in str)
             {
-                foreach(char ch in str)
-                {
-                    if (!char.IsDigit(ch) && !char.IsLetter(ch))
-                        return false;
-                }
-                return true;
+                if (!char.IsLetterOrDigit(c))
+                    return false;
             }
+            return true;
         }
     }
 }

@@ -10,17 +10,15 @@ namespace Katas
         {
             public static string Encrypt(string text, int n)
             {
+                string encryptedText = text;
                 if (String.IsNullOrEmpty(text))
                     return text;
-                else
-                {
-                    for (var i = 0; i < n; i++)
-                        Encrypting(ref text);
-                    return text;
-                }
+                for (var i = 0; i < n; i++)
+                    encryptedText = Encrypting(encryptedText);
+                return encryptedText;
             }
 
-            static void Encrypting(ref string text)
+            static string Encrypting(string text)
             {
                 var firstPart = new StringBuilder();
                 var secondPart = new StringBuilder();
@@ -31,31 +29,29 @@ namespace Katas
                     else
                         secondPart.Append(text[i - 1]);
                 }
-                text = $"{firstPart}{secondPart}";
+                return $"{firstPart}{secondPart}";
             }
 
             public static string Decrypt(string encryptedText, int n)
             {
+                string decryptedText = encryptedText;
                 if (String.IsNullOrEmpty(encryptedText))
                     return encryptedText;
-                else
-                {
-                    for (var i = 0; i < n; i++)
-                        Decrypting(ref encryptedText);
-                    return encryptedText;
-                }
+                for (var i = 0; i < n; i++)
+                    decryptedText = Decrypting(decryptedText);
+                return decryptedText;
             }
 
-            static void Decrypting(ref string encryptedText)
+            static string Decrypting(string encryptedText)
             {
                 var decryptedText = new StringBuilder();
-                for (int i = 0, j = encryptedText.Length / 2; j < encryptedText.Length; i++,j++)
+                for (int i = 0, j = encryptedText.Length / 2; j < encryptedText.Length; i++, j++)
                 {
                     decryptedText.Append(encryptedText[j]);
                     if (i < encryptedText.Length / 2)
                         decryptedText.Append(encryptedText[i]);
                 }
-                encryptedText = decryptedText.ToString();
+                return decryptedText.ToString();
             }
         }
     }

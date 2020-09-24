@@ -5,12 +5,13 @@ namespace Tests
 {
     public class CreditCardMaskTest
     {
-        [Fact]
-        public void MaskifyTests()
+        [Theory]
+        [InlineData("4556364607935616", "############5616")]
+        [InlineData("1", "1")]
+        [InlineData("11111", "#1111")]
+        public void MaskifyTests(string input, string output)
         {
-            Assert.Equal("############5616", CreditCardMask.Maskify("4556364607935616"));
-            Assert.Equal("1", CreditCardMask.Maskify("1"));
-            Assert.Equal("#1111", CreditCardMask.Maskify("11111"));
+            Assert.Equal(output, CreditCardMask.Maskify(input));
         }
     }
 }

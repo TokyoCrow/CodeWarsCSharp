@@ -5,14 +5,15 @@ namespace Tests
 {
     public class BitCountingTest
     {
-        [Fact]
-        public void CountBitsTest()
+        [Theory]
+        [InlineData(0, 0)]
+        [InlineData(4, 1)]
+        [InlineData(7, 3)]
+        [InlineData(9, 2)]
+        [InlineData(10, 2)]
+        public void CountBitsTest(int input, int output)
         {
-            Assert.Equal(0, BitCounting.CountBits(0));
-            Assert.Equal(1, BitCounting.CountBits(4));
-            Assert.Equal(3, BitCounting.CountBits(7));
-            Assert.Equal(2, BitCounting.CountBits(9));
-            Assert.Equal(2, BitCounting.CountBits(10));
+            Assert.Equal(output, BitCounting.CountBits(input));
         }
     }
 }

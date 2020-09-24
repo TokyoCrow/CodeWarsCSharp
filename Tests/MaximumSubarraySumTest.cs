@@ -5,11 +5,12 @@ namespace Tests
 {
     public class MaximumSubarraySumTest
     {
-        [Fact]
-        public void MaxSequenceTest()
+        [Theory]
+        [InlineData(new int[0], 0)]
+        [InlineData(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }, 6)]
+        public void MaxSequenceTest(int[] input, int output)
         {
-            Assert.Equal(0, MaximumSubarraySum.MaxSequence(new int[0]));
-            Assert.Equal(6, MaximumSubarraySum.MaxSequence(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }));
+            Assert.Equal(output, MaximumSubarraySum.MaxSequence(input));
         }
     }
 }

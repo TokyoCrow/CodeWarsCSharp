@@ -5,13 +5,14 @@ namespace Tests
 {
     public class DoesMyNumberLookBigInThisTest
     {
-        [Fact]
-        public void NarcissisticTest()
+        [Theory]
+        [InlineData(1, true)]
+        [InlineData(371, true)]
+        [InlineData(999, false)]
+        [InlineData(154, false)]
+        public void NarcissisticTest(int input, bool output)
         {
-            Assert.True(DoesMyNumberLookBigInThis.Narcissistic(1));
-            Assert.True(DoesMyNumberLookBigInThis.Narcissistic(371));
-            Assert.False(DoesMyNumberLookBigInThis.Narcissistic(999));
-            Assert.False(DoesMyNumberLookBigInThis.Narcissistic(154));
+            Assert.Equal(output, DoesMyNumberLookBigInThis.Narcissistic(input));
         }
     }
 }

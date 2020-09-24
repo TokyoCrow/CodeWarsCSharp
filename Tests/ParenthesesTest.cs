@@ -5,13 +5,14 @@ namespace Tests
 {
     public class ParenthesesTest
     {
-        [Fact]
-        public void ValidParenthesesTest()
+        [Theory]
+        [InlineData("()", true)]
+        [InlineData(")((((", false)]
+        [InlineData(")(", false)]
+        [InlineData("())(", false)]
+        public void ValidParenthesesTest(string input, bool output)
         {
-            Assert.True(Parentheses.ValidParentheses("()"));
-            Assert.False(Parentheses.ValidParentheses(")(((("));
-            Assert.False(Parentheses.ValidParentheses(")("));
-            Assert.False(Parentheses.ValidParentheses("())("));
+            Assert.Equal(output, Parentheses.ValidParentheses(input));
         }
     }
 }

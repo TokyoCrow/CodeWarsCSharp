@@ -9,15 +9,13 @@ namespace Katas
         {
             if (n == 0)
                 return Array.Empty<double>();
-            else
+            double[] outputSignature = new double[n];
+            Array.Copy(signature, outputSignature, 3);
+            for (var i = 3; i < n; i++)
             {
-                Array.Resize(ref signature, n);
-                for(var i = 3; i < n; i++)
-                {
-                    signature[i] = signature[i-1] + signature[i-2] + signature[i-3];
-                }
-                return signature;
+                outputSignature[i] = outputSignature[i - 1] + outputSignature[i - 2] + outputSignature[i - 3];
             }
+            return outputSignature;
         }
     }
 }

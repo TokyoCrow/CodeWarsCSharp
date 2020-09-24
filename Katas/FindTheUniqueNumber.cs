@@ -8,7 +8,7 @@ namespace Katas
     {
         public static int GetUnique(IEnumerable<int> numbers)
         {
-            return numbers.Distinct().Where(number => numbers.Count(number.Equals) == 1).Single<int>();
+            return numbers.Distinct().Where(number => numbers.Count(number.Equals) == 1).Single();
         }
     }
 }

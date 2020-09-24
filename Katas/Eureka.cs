@@ -6,10 +6,10 @@ namespace Katas
     //https://www.codewars.com/kata/5626b561280a42ecc50000d1
     public static class Eureka
     {
-        public static long[] SumDigPow(long a, long b)
+        public static long[] SumDigPow(long startRange, long endRange)
         {
             List<long> numbers = new List<long>();
-            for (long number = a; number <= b; number++)
+            for (long number = startRange; number <= endRange; number++)
             {
                 string digits = Convert.ToString(number);
                 int sumOfNumberDigits = 0;

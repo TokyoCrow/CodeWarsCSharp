@@ -5,16 +5,17 @@ namespace Tests
 {
     public class EurekaTest
     {
-        [Fact]
-        public void SumDigPowTest()
+        [Theory]
+        [InlineData(1, 10, new long[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })]
+        [InlineData(1, 100, new long[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 89 })]
+        [InlineData(10, 100, new long[] { 89 })]
+        [InlineData(90, 100, new long[] { })]
+        [InlineData(90, 150, new long[] { 135 })]
+        [InlineData(50, 150, new long[] { 89, 135 })]
+        [InlineData(10, 150, new long[] { 89, 135 })]
+        public void SumDigPowTest(int inputStartRange, int inputEndRange, long[] output)
         {
-            Assert.Equal(new long[] {1, 2, 3, 4, 5, 6, 7, 8, 9}, Eureka.SumDigPow(1, 10));
-            Assert.Equal(new long[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 89}, Eureka.SumDigPow(1, 100));
-            Assert.Equal(new long[] {89}, Eureka.SumDigPow(10, 100));
-            Assert.Equal(new long[] {}, Eureka.SumDigPow(90, 100));
-            Assert.Equal(new long[] {135}, Eureka.SumDigPow(90, 150));
-            Assert.Equal(new long[] {89, 135}, Eureka.SumDigPow(50, 150));
-            Assert.Equal(new long[] {89, 135}, Eureka.SumDigPow(10, 150));
+            Assert.Equal(output, Eureka.SumDigPow(inputStartRange, inputEndRange));
         }
     }
 }

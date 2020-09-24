@@ -5,12 +5,13 @@ namespace Tests
 {
     public class TribonacciSequenceTest
     {
-        [Fact]
-        public void TribonacciTest()
+        [Theory]
+        [InlineData(new double[] { 1, 1, 1 }, 10, new double[] { 1, 1, 1, 3, 5, 9, 17, 31, 57, 105 })]
+        [InlineData(new double[] { 0, 0, 1 }, 10, new double[] { 0, 0, 1, 1, 2, 4, 7, 13, 24, 44 })]
+        [InlineData(new double[] { 0, 1, 1 }, 10, new double[] { 0, 1, 1, 2, 4, 7, 13, 24, 44, 81 })]
+        public void TribonacciTest(double[] inputArr,int inputLength, double[] output)
         {
-            Assert.Equal(new double[] { 1, 1, 1, 3, 5, 9, 17, 31, 57, 105 }, TribonacciSequence.Tribonacci(new double[] { 1, 1, 1 }, 10));
-            Assert.Equal(new double[] { 0, 0, 1, 1, 2, 4, 7, 13, 24, 44 }, TribonacciSequence.Tribonacci(new double[] { 0, 0, 1 }, 10));
-            Assert.Equal(new double[] { 0, 1, 1, 2, 4, 7, 13, 24, 44, 81 }, TribonacciSequence.Tribonacci(new double[] { 0, 1, 1 }, 10));
+            Assert.Equal(output, TribonacciSequence.Tribonacci(inputArr, inputLength));
         }
     }
 }

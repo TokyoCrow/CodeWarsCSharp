@@ -5,11 +5,12 @@ namespace Tests
 {
     public class RomanNumeralsDecoderTest
     {
-        [Fact]
-        public void SolutionTest()
+        [Theory]
+        [InlineData("I", 1)]
+        [InlineData("IV", 4)]
+        public void SolutionTest(string input, int output)
         {
-            Assert.Equal(1, RomanDecode.Solution("I"));
-            Assert.Equal(4, RomanDecode.Solution("IV"));
+            Assert.Equal(output, RomanDecode.Solution(input));
         }
     }
 }

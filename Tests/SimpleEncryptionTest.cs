@@ -7,28 +7,30 @@ namespace Tests
     {
         public class AlternatingSplitTest
         {
-            [Fact]
-            public void EncryptExampleTests()
+            [Theory]
+            [InlineData("This is a test!", 0, "This is a test!")]
+            [InlineData("This is a test!", 1, "hsi  etTi sats!")]
+            [InlineData("This is a test!", 2, "s eT ashi tist!")]
+            [InlineData("This is a test!", 3, " Tah itse sits!")]
+            [InlineData("This is a test!", 4, "This is a test!")]
+            [InlineData("This is a test!", -1, "This is a test!")]
+            [InlineData("This kata is very interesting!", 1, "hskt svr neetn!Ti aai eyitrsig")]
+            public void EncryptExampleTests(string inputText, int inputRepeats, string output)
             {
-                Assert.Equal("This is a test!", SimpleEncryption.AlternatingSplit.Encrypt("This is a test!", 0));
-                Assert.Equal("hsi  etTi sats!", SimpleEncryption.AlternatingSplit.Encrypt("This is a test!", 1));
-                Assert.Equal("s eT ashi tist!", SimpleEncryption.AlternatingSplit.Encrypt("This is a test!", 2));
-                Assert.Equal(" Tah itse sits!", SimpleEncryption.AlternatingSplit.Encrypt("This is a test!", 3));
-                Assert.Equal("This is a test!", SimpleEncryption.AlternatingSplit.Encrypt("This is a test!", 4));
-                Assert.Equal("This is a test!", SimpleEncryption.AlternatingSplit.Encrypt("This is a test!", -1));
-                Assert.Equal("hskt svr neetn!Ti aai eyitrsig", SimpleEncryption.AlternatingSplit.Encrypt("This kata is very interesting!", 1));
+                Assert.Equal(output, SimpleEncryption.AlternatingSplit.Encrypt(inputText, inputRepeats));
             }
 
-            [Fact]
-            public void DecryptExampleTests()
+            [Theory]
+            [InlineData("This is a test!", 0, "This is a test!")]
+            [InlineData("hsi  etTi sats!", 1, "This is a test!")]
+            [InlineData("s eT ashi tist!", 2, "This is a test!")]
+            [InlineData(" Tah itse sits!", 3, "This is a test!")]
+            [InlineData("This is a test!", 4, "This is a test!")]
+            [InlineData("This is a test!", -1, "This is a test!")]
+            [InlineData("hskt svr neetn!Ti aai eyitrsig", 1, "This kata is very interesting!")]
+            public void DecryptExampleTests(string inputText, int inputRepeats, string output)
             {
-                Assert.Equal("This is a test!", SimpleEncryption.AlternatingSplit.Decrypt("This is a test!", 0));
-                Assert.Equal("This is a test!", SimpleEncryption.AlternatingSplit.Decrypt("hsi  etTi sats!", 1));
-                Assert.Equal("This is a test!", SimpleEncryption.AlternatingSplit.Decrypt("s eT ashi tist!", 2));
-                Assert.Equal("This is a test!", SimpleEncryption.AlternatingSplit.Decrypt(" Tah itse sits!", 3));
-                Assert.Equal("This is a test!", SimpleEncryption.AlternatingSplit.Decrypt("This is a test!", 4));
-                Assert.Equal("This is a test!", SimpleEncryption.AlternatingSplit.Decrypt("This is a test!", -1));
-                Assert.Equal("This kata is very interesting!", SimpleEncryption.AlternatingSplit.Decrypt("hskt svr neetn!Ti aai eyitrsig", 1));
+                Assert.Equal(output, SimpleEncryption.AlternatingSplit.Decrypt(inputText, inputRepeats));
             }
 
             [Fact]
