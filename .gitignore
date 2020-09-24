@@ -23,11 +23,6 @@ Thumbs.db
 *.lib
 *.sbr
 obj/
-[Rr]elease*/
-_ReSharper*/
-[Tt]est[Rr]esult*
 .vs/
-**/Tests/bin/
-**/Tests/obj/
 #Nuget packages folder
 packages/
